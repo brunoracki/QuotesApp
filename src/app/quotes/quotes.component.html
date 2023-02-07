@@ -1,0 +1,8 @@
+<h2>{{quote.text}}</h2>
+<div><span>Quote number: </span>{{quote.id}}</div>
+<div><span>Author: </span>{{quote.author | uppercase}}</div>
+
+<div>
+    <label for="text">Quote text: </label>
+    <input size="45 rem" id="text" [(ngModel)]="quote.text" placeholder="text">
+</div>
