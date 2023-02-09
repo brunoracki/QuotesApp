@@ -1,0 +1,9 @@
+<div *ngIf="quote">
+    <h2>{{quote.text | uppercase}}</h2>
+    <div>id: {{quote.id}}</div>
+    <div>
+      <label for="author">Author name: </label>
+      <input id="author" [(ngModel)]="quote.author" placeholder="author">
+    </div>
+</div>
+

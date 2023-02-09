@@ -1,3 +1,4 @@
+<!--  
 <h2>{{quote.text}}</h2>
 <div><span>Quote number: </span>{{quote.id}}</div>
 <div><span>Author: </span>{{quote.author | uppercase}}</div>
@@ -5,4 +6,28 @@
 <div>
     <label for="text">Quote text: </label>
     <input size="45 rem" id="text" [(ngModel)]="quote.text" placeholder="text">
-</div>
+</div>   -->
+
+<h2>Top quotes in the world of all the time</h2>
+<ul class="quotes">
+  <li *ngFor="let quote of quotes" [class.selected]="quote === selectedQuote"> <!-- for loop that iterates along the mock-->
+    <button mat-button type="button" (click)="onSelect(quote)">
+      <span class="quotes-list-text">{{quote.text}}</span>
+      <br>
+      <span class="quotes-list-author">Author: {{quote.author}}</span>
+      <br>
+      <a class="quotes-list-id">Quote number: {{quote.id}}</a>
+    </button>
+  </li>
+</ul>
+
+<app-quote-detail [quote]="selectedQuote"></app-quote-detail>
+
+<!--<div *ngIf="selectedQuote">
+    <h2>{{selectedQuote.text | uppercase}}</h2>
+    <div>id: {{selectedQuote.id}}</div>
+    <div>
+      <label for="author">Author name: </label>
+      <input id="author" [(ngModel)]="selectedQuote.author" placeholder="author">
+    </div>
+</div> -->
