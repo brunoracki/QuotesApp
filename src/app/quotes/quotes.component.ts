@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Quote } from '../interfaces/quote';
 import { QUOTES } from '../mock.quotes';
+import { QuoteService } from '../services/quote.service';
 
 @Component({
   selector: 'app-quotes',
@@ -9,6 +10,11 @@ import { QUOTES } from '../mock.quotes';
 })
 
 export class QuotesComponent {
+  ngOnInit(): void {
+    this.getQuotes();
+  }
+  constructor(private quoteService: QuoteService) {}
+  quotes: Quote[] = [];
   selectedQuote?: Quote;
   onSelect(quote: Quote): void {
   this.selectedQuote = quote;
@@ -18,7 +24,11 @@ export class QuotesComponent {
     author: 'Bruno Racki',
     text: 'Ti si divlja rijeka, a ja brod u boci'
   };*/
-  quotes = QUOTES;
+  //quotes = QUOTES;
+
+  getQuotes(): void {
+    this.quotes = this.quoteService.getQuotes();
+  }
 }
 
 
